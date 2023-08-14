@@ -10,6 +10,7 @@ int main(){
 	int buyqty[1001], qty[1001];
 	int buyprice[100001], price[100001];
 	int beli=0;
+	int totalprice[100001];
 	
 	do{
 		system("cls");
@@ -53,6 +54,12 @@ int main(){
 			break;
 		case 3:
 			if(item>0){
+				printf("Item list\n");
+				for(int a=0;a<item;a++){
+					for(int b=0;b<1;b++){
+					printf("%d. %s %d %d\n", a+1, &name[a][b], qty[a], price[a]);
+					}
+				}
 			printf("Input item name[without space]: ");
 			scanf("%s", buy[beli]);
 			for(int a=0;a<item;a++){
@@ -83,8 +90,10 @@ int main(){
 			printf("|---- Check Out ----|\n");
 			printf("|___________________|\n\n");
 			for(int e=0;e<beli;e++){
-					printf("%d.  Item name\t : %s\n    Quantity\t : %d\n    You must pay : %d\n", e+1, &buy[e], buyqty[e], buyprice[e]);
+					printf("%d.  Item name\t\t : %s\n    Quantity\t\t : %d\n    Qty Price \t\t : %d\n", e+1, &buy[e], buyqty[e], buyprice[e]);
+					totalprice[1]=totalprice[1]+buyprice[e];
 				}
+			printf("> Total Price\t\t : %d", totalprice[1]);
 			}else{
 				return 0;
 			}
